@@ -99,7 +99,6 @@ func (c *PropertyDetailsController) Get() {
 		breadcrumbs = append(breadcrumbs, rentalProperty.Breadcrumb4)
 	}
 
-	// Split DisplayLocation into parent-child relationship
 	displayLocation := strings.Split(rentalProperty.DisplayLocation, ",")
 	amenities := strings.Split(rentalProperty.Amenities, ", ")
 
