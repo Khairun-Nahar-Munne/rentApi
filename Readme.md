@@ -1,4 +1,4 @@
-# Cat APP Go Project
+# Rent By Owner Go Basckend API Project
 
  We will create a backend API using the Beego framework to serve the property list and data from database.
 
