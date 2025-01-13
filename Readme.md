@@ -1,6 +1,6 @@
 # Cat APP Go Project
 
-This project aims to fetch data from Booking.com and store it in a local PostgreSQL database. We will create a backend API using the Beego framework to serve the property data and design two front-end pages: property listing and property details.
+ We will create a backend API using the Beego framework to serve the property list and data from database.
 
 ## Table of Contents
 
@@ -13,8 +13,6 @@ This project aims to fetch data from Booking.com and store it in a local Postgre
 6. [Running the Test](#running-the-test)
 7. [API Endpoints](#api-endpoints)
 8. [Project Structure](#project-structure)
-9. [Contributing](#contributing)
-10. [Authors](#authors)
 
 ## Prerequisites
 
@@ -74,6 +72,7 @@ If you haven't installed Go, follow these steps:
 You have to run rent project following the instructions given in the gitub repository of the project. Otherwise, you can not get the data.
 
 The  project github repo link: https://github.com/Khairun-Nahar-Munne/rent
+
 You have to keep running the docker to fetch data from the database.
 
 ### 2. Clone the Repository
@@ -135,7 +134,7 @@ go get github.com/beego/bee/v2
 
 3. To fetch the data from booking.com api:
 
-- Run this `http://localhost:8080/v1/property/list` Feth data from location and rental property tables
+- Run this `http://localhost:8000/v1/property/list` Feth data from location and rental property tables
 
 ## API Endpoints
 
