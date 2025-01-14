@@ -38,10 +38,36 @@ func (c *PropertyDetailsController) Get() {
         return
     }
 
-    images := utils.PrepareImages(propertyDetails)
-    breadcrumbs := utils.PrepareBreadcrumbs(rentalProperty)
-    displayLocation := utils.SplitDisplayLocation(rentalProperty.DisplayLocation)
-    amenities := utils.SplitAmenities(rentalProperty.Amenities)
+    var images []string
+    var breadcrumbs []string
+    var displayLocation []string
+    var amenities []string
+
+    // Create channels to receive results from goroutines
+    imagesChan := make(chan []string)
+    breadcrumbsChan := make(chan []string)
+    displayLocationChan := make(chan []string)
+    amenitiesChan := make(chan []string)
+
+    // Run utility functions in separate goroutines
+    go func() {
+        imagesChan <- utils.PrepareImages(propertyDetails)
+    }()
+    go func() {
+        breadcrumbsChan <- utils.PrepareBreadcrumbs(rentalProperty)
+    }()
+    go func() {
+        displayLocationChan <- utils.SplitDisplayLocation(rentalProperty.DisplayLocation)
+    }()
+    go func() {
+        amenitiesChan <- utils.SplitAmenities(rentalProperty.Amenities)
+    }()
+
+    // Receive results from channels
+    images = <-imagesChan
+    breadcrumbs = <-breadcrumbsChan
+    displayLocation = <-displayLocationChan
+    amenities = <-amenitiesChan
 
     property := models.PropertyDetailsData{
         Id:              rentalProperty.Id,
