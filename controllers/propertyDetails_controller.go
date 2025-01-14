@@ -6,11 +6,11 @@ import (
     "rentApi/services"
     "rentApi/utils"
 
-    "github.com/beego/beego/v2/server/web"
+    beego "github.com/beego/beego/v2/server/web"
 )
 
 type PropertyDetailsController struct {
-    web.Controller
+    beego.Controller
 }
 
 func (c *PropertyDetailsController) Get() {
